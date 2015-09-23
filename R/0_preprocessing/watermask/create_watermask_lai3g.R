@@ -48,7 +48,8 @@ for (year in 2010:2011) {
 				}
 			}
 		}
-
+  	#outname.month = paste("~/Documents/Uni/Masterarbeit/watermask/lai3g/monthly/watermask.", year, month.name[mon], "a", sep="")
+  	#write.ENVI(mtrx.mask.month, outname.month, interleave = "bsq" ) 
 	
 		# rinse and repeat for second half of month
   	  file.name = paste("~/Documents/Uni/Masterarbeit/LAIv3g/raw_data/avhrrbulai_v01/AVHRRBUVI01.", year, month.name[mon], "b.abl", sep="") 
@@ -60,7 +61,7 @@ for (year in 2010:2011) {
   		  for(j in seq(from=1, to=4320, by=6)) {
   			  imax = i+5
   			  jmax = j+5
-  			  	if(mean(mtrx[i:imax,j:jmax])==250) {
+  			  	if(max(mtrx[i:imax,j:jmax])==250) {
   					inew = imax/6
   					jnew = jmax/6
   					#mtrx.mask.month[inew,jnew] = NA
